@@ -2,7 +2,7 @@
 # Only say "yes" when you know what you are doing, have configured
 # thinkfan correctly for *YOUR* machine and loaded thinkpad_acpi
 # with fan_control=1 (if you have a ThinkPad).
-START=YES
+START=yes
 
 # Additional startup parameters
 DAEMON_ARGS="-q"
