@@ -1,0 +1,117 @@
+" Source a global configuration file if available
+if filereadable("/etc/vim/gvimrc.local")
+  source /etc/vim/gvimrc.local
+endif
+
+" Pathogen
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+" Map leadert to ,
+let mapleader = ","
+
+" Shortcuts
+map T :TlistToggle<CR>
+map L :NERDTreeToggle<CR>
+map Ñ :BufExplorer<CR>
+
+" CommandT shortcuts
+noremap <leader>o <Esc>:CommandT<CR>
+noremap <leader>O <Esc>:CommandTFlush<CR>
+noremap <leader>m <Esc>:CommandTBuffer<CR>
+
+" Solarized scheme
+set background=dark
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+colorscheme solarized
+
+" key Shift fixes
+map:W :w
+map:<span class="caps">WQ</span> :wq
+map:wQ :wq
+map:Q :q
+
+" Change windows easily
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Clear the search buffer with ,/
+nmap <silent> ,/ :let @/=""<CR>
+
+" Run sudo after !w if we forgot to open the file with privileges
+cmap w!! w ! sudo tee % >/dev/null
+
+" Format paragraphs easily
+vmap Q gq
+nmap Q gqap
+
+" Highlight whitespaces
+set list
+set listchars=tab:>\ ,trail:.,extends:#,nbsp:.
+
+set history=1000                " remember more commands and search history
+set undolevels=1000             " use many levels of undo
+set wildignore=*.swp,*.bak,*.pyc,*.class
+set title                       " change the terminal's title
+set visualbell                  " don't beep
+set noerrorbells                " don't beep
+set cmdheight=2                 " Set the commandheight
+set ignorecase                  " Set ignorecase on
+set smartcase                   " Set smartcase on
+set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%* " Set status line
+set laststatus=2                " Always display a status line at the bottom of the window
+set showmatch
+set number                      " set lines numbers
+set hlsearch                    " highlight searches
+set incsearch                   " incremental search
+set autoindent                  " autoindent
+set autochdir                   " change to file folder
+set smarttab                    " smart tabs
+set tw=200                      " line width
+set hidden
+
+" Store backup files in a centralised place
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+" Enable autocompletition for all file types
+if has("autocmd") && exists("+omnifunc")
+  autocmd Filetype *
+  \if &omnifunc == "" |
+     \setlocal omnifunc=syntaxcomplete#Complete |
+  \endif
+endif
+
+" Pyton syntax
+"if has("autocmd")
+"  autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
+"endif
+
+" Whitespaces preferences for filetypes
+if has("autocmd")
+    " Enable file type detection
+    filetype on
+
+    " Syntax of these languages is fussy over tabs Vs spaces
+    autocmd FileType python setlocal ts=4 sts=4 sw=4 tw=80 expandtab
+    autocmd FileType c setlocal ts=2 sts=2 sw=2 tw=80 expandtab
+    autocmd FileType php setlocal ts=2 sts=2 sw=2 tw=80 expandtab
+endif
+
+" Remove trailing whitspaces
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
