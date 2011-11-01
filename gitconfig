@@ -1,0 +1,17 @@
+[user]
+	name = Andoni Morales Alastruey
+	email = ylatuya@gmail.com
+[color]
+	ui = auto
+	diff = auto
+[push]
+	default = tracking
+[branch]
+	autosetuprebase = always
+[alias]
+	l = log --oneline --decorate --graph
+	d = diff --word-diff
+	s = status --short
+	a = add -u
+	c = commit
+
