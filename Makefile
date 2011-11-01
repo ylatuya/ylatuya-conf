@@ -6,3 +6,4 @@ link:
 	ln -sf `pwd`/vim ~/.vim
 	ln -sf `pwd`/vim/vimrc ~/.vimrc
 	ln -sf `pwd`/gitconfig ~/.gitconfig
+	ln -sf `pwd`/ssh/config ~/.ssh/config
