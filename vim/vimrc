@@ -69,7 +69,7 @@ set number                      " set lines numbers
 set hlsearch                    " highlight searches
 set incsearch                   " incremental search
 set autoindent                  " autoindent
-set autochdir                   " change to file folder
+" set autochdir                   " change to file folder
 set smarttab                    " smart tabs
 set tw=200                      " line width
 set hidden
