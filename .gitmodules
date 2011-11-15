@@ -31,3 +31,6 @@
 [submodule "vim/bundle/bufexplorer"]
 	path = vim/bundle/bufexplorer
 	url = https://github.com/corntrace/bufexplorer.git
+[submodule "vim/bundle/vim-pinpoint"]
+	path = vim/bundle/vim-pinpoint
+	url = https://github.com/fmoralesc/vim-pinpoint
