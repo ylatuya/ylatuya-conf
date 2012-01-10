@@ -95,6 +95,7 @@ endif
 if has("autocmd")
     " Enable file type detection
     filetype on
+    filetype plugin on
 
     " Syntax of these languages is fussy over tabs Vs spaces
     autocmd FileType python setlocal ts=4 sts=4 sw=4 tw=80 expandtab
