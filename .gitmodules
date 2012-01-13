@@ -34,3 +34,6 @@
 [submodule "vim/bundle/vim-pinpoint"]
 	path = vim/bundle/vim-pinpoint
 	url = https://github.com/fmoralesc/vim-pinpoint
+[submodule "vim/bundle/powerline"]
+	path = vim/bundle/powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
