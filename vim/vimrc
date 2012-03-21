@@ -5,6 +5,7 @@ endif
 
 " Pathogen
 call pathogen#runtime_append_all_bundles()
+filetype off
 call pathogen#helptags()
 
 " Map leadert to ,
@@ -94,8 +95,7 @@ endif
 " Whitespaces preferences for filetypes
 if has("autocmd")
     " Enable file type detection
-    filetype on
-    filetype plugin on
+    filetype plugin indent on
 
     " Syntax of these languages is fussy over tabs Vs spaces
     autocmd FileType python setlocal ts=4 sts=4 sw=4 tw=80 expandtab
