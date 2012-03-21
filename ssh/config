@@ -1,5 +1,5 @@
 Host *
 ForwardAgent yes
-X11Forwarding yes
+ForwardX11 no
 ServerAliveCountMax 3
 ServerAliveInterval 10
