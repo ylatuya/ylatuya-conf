@@ -6,7 +6,7 @@ link:
 	ln -sf `pwd`/vim ~/.vim
 	ln -sf `pwd`/vim/vimrc ~/.vimrc
 	mkdir -p ~/.vim/colors
-	ln -sf vim/bundle/solarized/colors/solarized.vim  ~/.vim/colors/solarized
+	ln -sf vim/bundle/solarized/colors/solarized.vim  ~/.vim/colors/solarized.vim
 	ln -sf `pwd`/gitconfig ~/.gitconfig
 	ln -sf `pwd`/ssh/config ~/.ssh/config
 
