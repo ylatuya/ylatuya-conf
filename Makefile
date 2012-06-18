@@ -10,3 +10,13 @@ link:
 	ln -sf `pwd`/gitconfig ~/.gitconfig
 	ln -sf `pwd`/ssh/config ~/.ssh/config
 
+USER_HOME = /c/Users/andoni
+VIM_HOME = $(USER_HOME)/vimfiles
+install-win32:
+	mkdir -p $(VIM_HOME)/plugins
+	cp -r `pwd`/vim/* $(VIM_HOME)
+	cp  `pwd`/vim/vimrc $(USER_HOME)/.vimrc
+	mkdir -p $(VIM_HOME)/colors
+	cp `pwd`/vim/bundle/solarized/colors/solarized.vim  $(VIM_HOME)/colors/solarized.vim
+	cp `pwd`/gitconfig ~/.gitconfig
+ 	#cp `pwd`/ssh/config ~/.ssh/config
