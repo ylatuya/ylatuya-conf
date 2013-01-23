@@ -37,3 +37,9 @@
 [submodule "vim/bundle/powerline"]
 	path = vim/bundle/powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/bundle/flake8"]
+	path = vim/bundle/flake8
+	url = git://github.com/vim-scripts/vim-flake8.git
+[submodule "vim/bundle/taglist"]
+	path = vim/bundle/taglist
+	url = git://github.com/vim-scripts/taglist.vim.git
