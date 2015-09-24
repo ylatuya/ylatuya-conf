@@ -34,6 +34,9 @@ map:<span class="caps">WQ</span> :wq
 map:wQ :wq
 map:Q :q
 
+" command line autocomplete
+set wildmode=longest,list
+
 " Change windows easily
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -105,7 +108,7 @@ if has("autocmd")
     autocmd FileType php setlocal ts=2 sts=2 sw=2 tw=80 expandtab
 endif
 
-" Remove trailing whitspaces
+" Remove trailing whitespaces
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
     let _s=@/
