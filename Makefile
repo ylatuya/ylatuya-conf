@@ -1,6 +1,7 @@
 init:
 	git submodule update --init --recursive
 	cd vim/bundle/command-t/ruby/command-t && ruby extconf.rb && make
+	cd vim/bundle/youcompleteme && ./install.py --clang-completer --omnisharp-completer
 
 link:
 	ln -sf `pwd`/vim/* ~/.vim
