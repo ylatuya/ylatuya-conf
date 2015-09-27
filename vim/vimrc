@@ -102,9 +102,15 @@ if has("autocmd")
     " Enable file type detection
     filetype plugin indent on
 
+    au BufNewFile,BufRead *.recipe set filetype=python
+    au BufNewFile,BufRead *.package set filetype=python
+    au BufNewFile,BufRead *.vala set filetype=vala
+    au BufNewFile,BufRead *.h set filetype=c
+    au BufNewFile,BufRead *.m set filetype=c
     " Syntax of these languages is fussy over tabs Vs spaces
     autocmd FileType python setlocal ts=4 sts=4 sw=4 tw=80 expandtab
     autocmd FileType c setlocal ts=2 sts=2 sw=2 tw=80 expandtab
+    autocmd FileType vala setlocal ts=2 sts=2 sw=2 tw=80 expandtab
     autocmd FileType php setlocal ts=2 sts=2 sw=2 tw=80 expandtab
 endif
 
