@@ -9,9 +9,9 @@
 [branch]
 	autosetuprebase = always
 [alias]
-	l = log --oneline --decorate --graph
+	l = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 	d = diff --word-diff
 	s = status --short
 	a = add -u
 	c = commit
-
+	up = !sh -c \"git commit -a -m \\\"Before rebase\\\" && git pull --rebase && git reset HEAD~1\"
