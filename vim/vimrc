@@ -22,11 +22,16 @@ noremap <leader>O <Esc>:CommandTFlush<CR>
 noremap <leader>m <Esc>:CommandTBuffer<CR>
 
 " Solarized scheme
+"
+syntax enable
 set background=dark
-let g:solarized_termtrans=1
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
 colorscheme solarized
+if colors_name == 'solarized'
+	if !has('gui_running') && $TERM_PROGRAM == 'Apple_Terminal'
+		let g:solarized_termcolors = 256
+		colorscheme solarized
+	endif
+endif
 
 " key Shift fixes
 map:W :w
@@ -43,8 +48,8 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Clear the search buffer with ,/
-nmap <silent> ,/ :let @/=""<CR>
+"Clear a search with ,<space>
+nnoremap <leader><space> :noh<cr>
 
 " Run sudo after !w if we forgot to open the file with privileges
 cmap w!! w ! sudo tee % >/dev/null
@@ -64,14 +69,20 @@ set title                       " change the terminal's title
 set visualbell                  " don't beep
 set noerrorbells                " don't beep
 set cmdheight=2                 " Set the commandheight
-set ignorecase                  " Set ignorecase on
-set smartcase                   " Set smartcase on
-set statusline=[%02n]\ %{fugitive#statusline()}\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%* " Set status line
 set laststatus=2                " Always display a status line at the bottom of the window
+
+" Search
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
 set showmatch
+set hlsearch
+
 set number                      " set lines numbers
-set hlsearch                    " highlight searches
-set incsearch                   " incremental search
+
 set autoindent                  " autoindent
 " set autochdir                   " change to file folder
 set smarttab                    " smart tabs
