@@ -10,6 +10,7 @@ link:
 	ln -sf `pwd`/vim/bundle/solarized/colors/solarized.vim  ~/.vim/colors/solarized.vim
 	ln -sf `pwd`/gitconfig ~/.gitconfig
 	ln -sf `pwd`/ssh/config ~/.ssh/config
+	ln -sf `pwd`/zshrc ~/.zshrc
 
 USER_HOME = /c/Users/andoni
 VIM_HOME = $(USER_HOME)/vimfiles

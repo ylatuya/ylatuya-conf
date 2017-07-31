@@ -23,7 +23,6 @@ noremap <leader>m <Esc>:CommandTBuffer<CR>
 
 " Solarized scheme
 "
-syntax enable
 set background=dark
 colorscheme solarized
 if colors_name == 'solarized'
@@ -72,8 +71,6 @@ set cmdheight=2                 " Set the commandheight
 set laststatus=2                " Always display a status line at the bottom of the window
 
 " Search
-nnoremap / /\v
-vnoremap / /\v
 set ignorecase
 set smartcase
 set gdefault
@@ -118,11 +115,14 @@ if has("autocmd")
     au BufNewFile,BufRead *.vala set filetype=vala
     au BufNewFile,BufRead *.h set filetype=c
     au BufNewFile,BufRead *.m set filetype=c
+    au BufNewFile,BufRead *.js set filetype=javascript
+    au BufNewFile,BufRead *.php set filetype=php
     " Syntax of these languages is fussy over tabs Vs spaces
     autocmd FileType python setlocal ts=4 sts=4 sw=4 tw=80 expandtab
     autocmd FileType c setlocal ts=2 sts=2 sw=2 tw=80 expandtab
     autocmd FileType vala setlocal ts=2 sts=2 sw=2 tw=80 expandtab
     autocmd FileType php setlocal ts=2 sts=2 sw=2 tw=80 expandtab
+    autocmd FileType javascript setlocal ts=2 sts=2 sw=2 tw=80 expandtab
 endif
 
 " Remove trailing whitespaces
@@ -137,3 +137,7 @@ function! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
+
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
+syntax enable

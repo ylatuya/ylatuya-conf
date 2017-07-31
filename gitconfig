@@ -13,5 +13,21 @@
 	d = diff --word-diff
 	s = status --short
 	a = add -u
+	ap = -u -p
 	c = commit
-	up = !sh -c \"git commit -a -m \\\"Before rebase\\\" && git pull --rebase && git reset HEAD~1\"
+	# Update branch to master keeping all changes
+	up = "!f() { git commit -a -m \"Before rebase\" && git pull --rebase && git reset HEAD~1; }; f"
+	# Update submodules to master
+	sub-ma= "!f() { git submodule update --remote --rebase; }; f"
+	# Commit submodule update
+	sub-co = "!f() { git commit $1 -m \"Update submodule\"; }; f"
+	# Update submodule to master and commit the changes
+	sub-al = "!f() { git sub-ma && git sub-co $1; }; f"
+	# Update all submodules
+	sub-up = submodule update --recursive
+	# Rebase a development branch autosquashing commits before a merge
+	ra = "!f() { git fetch && git rebase --interactive --autosquash origin/master; }; f"
+	# Commit with fixup
+	cf = "!f() { git commit --fixup=$1; }; f"
+	# Stash changes, switch branch and apply changes back
+	br = "!f() { git stash; git checkout $1; git stash apply } ; f"

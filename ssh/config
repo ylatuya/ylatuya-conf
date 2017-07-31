@@ -3,3 +3,15 @@ ForwardAgent yes
 ForwardX11 no
 ServerAliveCountMax 3
 ServerAliveInterval 10
+
+Host dev.fluendo
+IdentityFile ~/.ssh/id_rsa_davide
+
+Host pro.fluendo
+IdentityFile ~/.ssh/id_rsa_davide
+
+Host vm-test-machines.fluendo.lan
+HostKeyAlgorithms +ssh-dss
+
+Host 172.17.0.233
+HostKeyAlgorithms +ssh-dss
